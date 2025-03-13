@@ -1,11 +1,12 @@
+---
+import DarkModeToggle from './DarkModeToggle.astro';
+---
+
 <header class="bg-blue-500 dark:bg-blue-700 text-white py-4 transition-colors">
   <nav class="container mx-auto flex justify-between items-center p-4">
     <a href="#" class="hover:text-gray-300 text-2xl font-bold">Logo</a>
     <div class="flex items-center space-x-4">
-      <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-        <i class="fas fa-moon dark:hidden"></i>
-        <i class="fas fa-sun hidden dark:inline"></i>
-      </button>
+      <DarkModeToggle />
       <ul class="flex space-x-4">
         <li><a href="#" class="hover:text-gray-300">Home</a></li>
         <li><a href="#" class="hover:text-gray-300">About</a></li>
