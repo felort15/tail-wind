@@ -1,36 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
- <link href="/dist/styles.css" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Document</title>
+    <link href="/dist/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        }
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-blue-500 text-white py-4">
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors">
+    <header class="bg-blue-500 dark:bg-blue-700 text-white py-4 transition-colors">
         <nav class="container mx-auto flex justify-between items-center p-4">
             <a href="#" class="hover:text-gray-300 text-2xl font-bold">Logo</a>
-        <ul class="flex space-x-4">
-           <li>
-            <a href="#" class="hover:text-gray-300">Home</a>
-           </li>
-           <li>
-            <a href="#" class="hover:text-gray-300">About</a>
-           </li>
-           <li>
-            <a href="#" class="hover:text-gray-300">Contact</a>
-           </li>
-        </ul>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="#" class="hover:text-gray-300">About</a></li>
+                    <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main class="container mx-auto p-4">
         <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="flex-1">
-                <h1 class="text-4xl font-bold">Welcome to our website</h1>
-                <p class="text-gray-600 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                <h1 class="text-4xl font-bold text-gray-900 dark:text-white transition-colors">Welcome to our website</h1>
+                <p class="text-gray-600 dark:text-gray-300 mt-4 transition-colors">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
                 <div class="flex justify-center md:justify-start mt-4">
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Get Started</button>
+                    <button class="bg-blue-500 dark:bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors">Get Started</button>
                 </div>
             </div>
             <div class="flex-1">
@@ -38,22 +50,22 @@
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-            <div class="bg-white p-4 rounded-md">
-                <h2 class="text-2xl font-bold">About Us</h2>
-                <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-md transition-colors">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white transition-colors">About Us</h2>
+                <p class="text-gray-600 dark:text-gray-300 transition-colors">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
                 <ul class="flex space-x-4 mt-4">
                     <li>
-                        <a href="https://twitter.com" class="text-gray-600 hover:text-blue-400 text-2xl transition-colors">
+                        <a href="https://twitter.com" class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-300 text-2xl transition-colors">
                             <i class="fab fa-x-twitter"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://youtube.com" class="text-gray-600 hover:text-red-600 text-2xl transition-colors">
+                        <a href="https://youtube.com" class="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 text-2xl transition-colors">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://facebook.com" class="text-gray-600 hover:text-blue-600 text-2xl transition-colors">
+                        <a href="https://facebook.com" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 text-2xl transition-colors">
                             <i class="fab fa-facebook"></i>
                         </a>
                     </li>
